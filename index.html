@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kajal ❤️</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+/* Background: face thoda niche center me aaye */
+.bg {
+    background: url('pic.jpeg') no-repeat center 38% fixed; /* 38% = center se thoda niche */
+    background-size: cover;
+    filter: blur(3px) brightness(0.65);
+    position: absolute;
+    width: 100%; height: 100%;
+    z-index: -2;
+}
+.overlay {
+    background: rgba(0,0,0,0.25);
+    position: absolute;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;  /* bottom se aayega */
+    height: 100%;
+    padding-bottom: 80px; /* adjust yaha se upar niche */
+    text-align: center;
+}
+.name {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 15px #ff6ec7; }
+    to { text-shadow: 0 0 15px #fff, 0 0 25px #ff1493; }
+}
+.heart {
+    width: 90px; height: 80px;
+    background: radial-gradient(circle, #ff5f5f, #e60000);
+    position: relative;
+    margin-top: 20px;
+    transform: rotate(-45deg);
+    animation: beat 2s infinite;
+    box-shadow: 0 0 12px rgba(255,0,0,0.6);
+}
+.heart::before, .heart::after {
+    content: "";
+    width: 90px; height: 80px;
+    background: radial-gradient(circle, #ff5f5f, #e60000);
+    position: absolute;
+    border-radius: 50%;
+}
+.heart::before { top: -45px; left: 0; }
+.heart::after { left: 45px; top: 0; }
+@keyframes beat {
+    0%,100% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.2); }
+}
+.typewriter {
+    display: inline-block;
+    font-size: 1.2em;
+    letter-spacing: .12em;
+    margin-top: 15px;
+    max-width: 90%;
+    white-space: pre-wrap;
+    text-shadow: 0 0 6px rgba(255,255,255,0.7);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 2s;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="content">
+    <div class="name">Kajal</div>
+    <div class="heart"></div>
+    <div class="typewriter" id="text"></div>
+</div>
+
+<script>
+// New soulful best friend lines
+const text = 
+"Kajal, tum bas ek dost nahi Deep Best Freind Ho I don't Know ki app Meri kuch baato ko Follow kroge ya nhi  \n" +
+"Tum mere dil ka wo hissa ho,\n" +
+"jise main bina kahe bhi har pal mehsoos karta hoon.\n" +
+"Dosti ke rang me chhupa, ek khamosh sa pyaar bhi hai...\n" +
+"Tumhari muskurahat hi toh, meri zindagi ki sabse khoobsurat wajah hai...💕 ❤️ 🥰";
+let i = 0;
+const speed = 80;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>
